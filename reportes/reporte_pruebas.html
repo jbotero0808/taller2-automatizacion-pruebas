@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Pruebas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; margin-top: 30px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .pasó { color: green; font-weight: bold; }
+        .falló { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Reporte de Ejecución de Pruebas Automatizadas (AA1 - Unidad 2)</h1>
+    <p><strong>Asignatura:</strong> Pruebas y Calidad del Software</p>
+
+    <h2>1. Resultados Pruebas de Formulario Web (UI)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Paso de Prueba</th>
+                <th>Estado</th>
+                <th>Detalle de Validación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Abrir Formulario Web</td><td class='pasó'>PASÓ</td><td>Página cargada: https://httpbin.org/forms/post</td></tr><tr><td>Llenar Campos (Nombre, Email, Teléfono)</td><td class='pasó'>PASÓ</td><td>Campo adicional 'Teléfono' llenado correctamente</td></tr><tr><td>Seleccionar Opción</td><td class='pasó'>PASÓ</td><td>Opción Tamaño Grande seleccionada</td></tr><tr><td>Enviar Formulario</td><td class='pasó'>PASÓ</td><td>Formulario enviado correctamente al servidor</td></tr>
+        </tbody>
+    </table>
+
+    <h2>2. Resultados Pruebas de Servicio REST (API)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Endpoint / Operación</th>
+                <th>Estado</th>
+                <th>Detalle / Respuesta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>GET /posts/1</td><td class='pasó'>PASÓ</td><td>Status 200 OK - Registro recuperado con ID: 1</td></tr><tr><td>POST /posts (Crear Registro)</td><td class='pasó'>PASÓ</td><td>Status 201 - Objeto creado exitosamente con el campo 'categoria_prueba'</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>
