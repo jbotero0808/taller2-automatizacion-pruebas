@@ -10,11 +10,20 @@ def probar_formulario_web():
     # Crear carpeta de evidencias si no existe
     os.makedirs("evidencias", exist_ok=True)
 
-    # Configuración del navegador Chrome
+    # Configuración del navegador Chrome en modo headless (obligatorio para CI/CD)
     options = webdriver.ChromeOptions()
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()), options=options
-    )
+    options.add_argument("--headless=new")  # Sin interfaz gráfica
+    options.add_argument("--no-sandbox")  # Necesario en contenedores/VM de CI
+    options.add_argument("--disable-dev-shm-usage")  # Evita fallos por /dev/shm reducido
+    options.add_argument("--window-size=1280,800")
+
+    try:
+        driver = webdriver.Chrome(
+            service=Service(ChromeDriverManager().install()), options=options
+        )
+    except Exception:
+        # Respaldo: Selenium Manager (incluido en Selenium >= 4.6) resuelve el driver
+        driver = webdriver.Chrome(options=options)
     driver.set_window_size(1280, 800)
 
     resultados = []
